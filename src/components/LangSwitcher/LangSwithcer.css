@@ -1,0 +1,71 @@
+.lang-switcher {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  z-index: 9999;
+}
+
+.lang-switcher__panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lang-switcher__panel--open {
+  border: 1px solid #84858a;
+  border-radius: 6px;
+  padding: 8px;
+  gap: 10px;
+  background: rgba(24, 24, 24, 0.95);
+  backdrop-filter: blur(12.5px);
+}
+
+.lang-switcher__option {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #84858a;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  outline: none;
+  flex-shrink: 0;
+  backdrop-filter: blur(12.5px);
+}
+
+.lang-switcher__panel--open .lang-switcher__option {
+  width: 37px;
+  height: 37px;
+}
+
+.lang-switcher__panel--open .lang-switcher__option--active {
+  background: #242424;
+}
+
+.lang-switcher__option:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.lang-switcher__option--hidden {
+  display: none;
+}
+
+.lang-switcher__flag {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.lang-switcher__panel--open .lang-switcher__flag {
+  width: 20px;
+  height: 20px;
+}
