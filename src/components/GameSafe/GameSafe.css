@@ -1,0 +1,86 @@
+.game-safe__container {
+  border: 1px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  background-image: url("/images/GameSafe/blue.png");
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.game-safe__ring {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 160px;
+  background: url("/images/GameSafe/middle.png") center / contain no-repeat;
+}
+
+.game-safe__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.game-safe__track {
+  stroke: transparent;
+}
+
+.game-safe__progress--red {
+  stroke: rgba(215, 0, 34, 0.39);
+}
+
+.game-safe__progress--green {
+  stroke: rgba(48, 164, 91, 0.66);
+}
+
+.game-safe__cursor-orbit {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.game-safe__cursor {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -17px;
+  transform: translateY(calc(var(--game-safe-radius) * -1))
+    rotate(var(--game-safe-cursor-rotate));
+  user-select: none;
+  pointer-events: none;
+}
+
+.game-safe__btn {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 0 20px;
+  height: 44px;
+  border: none;
+  border-radius: 6px;
+  background: #d70022;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  touch-action: none;
+}
