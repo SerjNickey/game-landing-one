@@ -12,6 +12,24 @@ const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 const FILL_DURATION_MS = 4000;
 const GREEN_RATIO = 0.15;
 /**
+ * Safe-dial haptics: short sharp detent + longer silence.
+ * (~40 notches / 4s ≈ one click every 100ms)
+ */
+const VIBE_CLICK_MS = 25;
+const VIBE_GAP_MS = 75;
+/** Keep pattern short — Android rejects very long arrays. */
+const VIBE_PATTERN = [
+  VIBE_CLICK_MS,
+  VIBE_GAP_MS,
+  VIBE_CLICK_MS,
+  VIBE_GAP_MS,
+  VIBE_CLICK_MS,
+  VIBE_GAP_MS,
+  VIBE_CLICK_MS,
+  VIBE_GAP_MS,
+];
+const VIBE_REPEAT_MS = VIBE_PATTERN.reduce((sum, ms) => sum + ms, 0);
+/**
  * Cursor asset tip points bottom-left (~135deg).
  * Align tip radially outward (up at start) → local rotate -225deg.
  */
@@ -117,6 +135,7 @@ export const GameSafe = () => {
   button.textContent = "O";
 
   let rafId = 0;
+  let vibeId = 0;
   let animating = false;
   /** Filled amount 0..1 */
   let filled = 0;
@@ -146,11 +165,28 @@ export const GameSafe = () => {
 
   setCursor(0);
 
+  const startVibe = () => {
+    if (!navigator.vibrate || vibeId) return;
+    navigator.vibrate(VIBE_PATTERN);
+    vibeId = window.setInterval(() => {
+      navigator.vibrate?.(VIBE_PATTERN);
+    }, VIBE_REPEAT_MS);
+  };
+
+  const stopVibe = () => {
+    if (vibeId) {
+      clearInterval(vibeId);
+      vibeId = 0;
+    }
+    navigator.vibrate?.(0);
+  };
+
   const stop = () => {
     if (rafId) {
       cancelAnimationFrame(rafId);
       rafId = 0;
     }
+    stopVibe();
     animating = false;
   };
 
@@ -186,7 +222,11 @@ export const GameSafe = () => {
   button.addEventListener("pointerdown", (event) => {
     event.preventDefault();
     button.setPointerCapture(event.pointerId);
-    start();
+
+    if (!animating && filled < 1) {
+      startVibe();
+      start();
+    }
   });
 
   const freeze = () => {
@@ -195,7 +235,6 @@ export const GameSafe = () => {
 
   button.addEventListener("pointerup", freeze);
   button.addEventListener("pointercancel", freeze);
-  button.addEventListener("lostpointercapture", freeze);
   button.addEventListener("contextmenu", (event) => event.preventDefault());
 
   ring.append(svg, cursorOrbit, button);

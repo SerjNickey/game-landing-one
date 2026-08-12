@@ -59,7 +59,7 @@
   top: 50%;
   width: 30px;
   height: 30px;
-  margin: -15px 0 0 -17px;
+  margin: -15px 0 0 -16px;
   transform: translateY(calc(var(--game-safe-radius) * -1))
     rotate(var(--game-safe-cursor-rotate));
   user-select: none;
