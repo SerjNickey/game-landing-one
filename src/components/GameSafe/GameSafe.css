@@ -1,4 +1,6 @@
 .game-safe__container {
+  position: relative;
+  overflow: hidden;
   border: 1px solid green;
   display: flex;
   justify-content: center;
@@ -8,10 +10,24 @@
   padding: 0;
   box-sizing: border-box;
   background-color: #ffffff;
-  background-image: url("/images/GameSafe/blue.png");
-  background-size: auto;
+  background-image: url("/images/GameSafe/blue2.png");
+  background-size: 343px 360px;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.game-safe__flash {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  background: #ffffff;
+  opacity: 1;
+  transition: opacity 0.45s ease-out;
+}
+
+.game-safe__flash--fade {
+  opacity: 0;
 }
 
 .game-safe__ring {

@@ -1,3 +1,4 @@
+import confetti from "canvas-confetti";
 import cursorUrl from "../../../public/images/GameSafe/cursor.png";
 import "./GameSafe.css";
 
@@ -39,6 +40,72 @@ const CURSOR_TIP_ROTATE_DEG = -225;
  * 0 = center on ticks; negative pulls toward dial center.
  */
 const CURSOR_RADIUS_OFFSET = -18;
+
+/** Warm palette from the prize / confetti mock. */
+const CONFETTI_COLORS = ["#FF2D2D", "#FF6A00", "#FFB800", "#FFE566", "#E10600"];
+
+/** White flash hold before fade — image swap happens while fully white. */
+const FLASH_HOLD_MS = 120;
+const FLASH_FADE_MS = 450;
+
+/**
+ * White light flash over the safe + flying confetti.
+ * `onCovered` runs while the flash is fully opaque.
+ * @param {HTMLElement} host
+ * @param {() => void} [onCovered]
+ */
+function burstConfettiFrom(host, onCovered) {
+  const rect = host.getBoundingClientRect();
+  const x = (rect.left + rect.width / 2) / window.innerWidth;
+  const y = (rect.top + rect.height / 2) / window.innerHeight;
+
+  const flash = document.createElement("div");
+  flash.className = "game-safe__flash";
+  host.append(flash);
+
+  // Force paint so the flash is visible before we swap art underneath.
+  flash.getBoundingClientRect();
+  onCovered?.();
+
+  const fire = (opts) =>
+    confetti({
+      origin: { x, y },
+      colors: CONFETTI_COLORS,
+      shapes: ["square"],
+      disableForReducedMotion: true,
+      spread: 360,
+      zIndex: 40,
+      ...opts,
+    });
+
+  fire({
+    particleCount: 160,
+    startVelocity: 28,
+    scalar: 1.2,
+    ticks: 260,
+    gravity: 0.7,
+    decay: 0.92,
+  });
+  fire({
+    particleCount: 120,
+    startVelocity: 18,
+    scalar: 1.4,
+    ticks: 280,
+    gravity: 0.55,
+    decay: 0.93,
+  });
+
+  window.setTimeout(() => {
+    flash.classList.add("game-safe__flash--fade");
+  }, FLASH_HOLD_MS);
+
+  window.setTimeout(
+    () => {
+      flash.remove();
+    },
+    FLASH_HOLD_MS + FLASH_FADE_MS + 50,
+  );
+}
 
 function createArcCircle(className) {
   const circle = document.createElementNS(
@@ -137,6 +204,7 @@ export const GameSafe = () => {
   let rafId = 0;
   let vibeId = 0;
   let animating = false;
+  let won = false;
   /** Filled amount 0..1 */
   let filled = 0;
   /** Random start of the green 15% window, picked once per run. */
@@ -190,8 +258,31 @@ export const GameSafe = () => {
     animating = false;
   };
 
+  const reset = () => {
+    greenStart = null;
+    setFilled(0);
+  };
+
+  const resolveStop = () => {
+    if (won || filled <= 0 || greenStart == null) return;
+
+    const greenEnd = greenStart + GREEN_RATIO;
+    if (filled >= greenStart && filled <= greenEnd) {
+      won = true;
+      console.log("You Win!");
+      burstConfettiFrom(el, () => {
+        // Hidden under opaque blanket — swap closed → open safe art here.
+        el.style.backgroundImage = 'url("/images/GameSafe/blue.png")';
+        ring.style.visibility = "hidden";
+      });
+      return;
+    }
+
+    reset();
+  };
+
   const start = () => {
-    if (animating || filled >= 1) return;
+    if (won || animating || filled >= 1) return;
 
     if (greenStart == null) {
       greenStart = Math.random() * (1 - GREEN_RATIO);
@@ -210,6 +301,7 @@ export const GameSafe = () => {
 
       if (filled >= 1) {
         stop();
+        resolveStop();
         return;
       }
 
@@ -223,14 +315,16 @@ export const GameSafe = () => {
     event.preventDefault();
     button.setPointerCapture(event.pointerId);
 
-    if (!animating && filled < 1) {
+    if (!won && !animating && filled < 1) {
       startVibe();
       start();
     }
   });
 
   const freeze = () => {
+    if (!animating) return;
     stop();
+    resolveStop();
   };
 
   button.addEventListener("pointerup", freeze);
