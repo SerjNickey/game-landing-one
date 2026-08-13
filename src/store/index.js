@@ -13,6 +13,7 @@ function rootReducer(state, action) {
       : {
           lang: state.lang,
           currentStep: state.currentStep,
+          selectedSafeId: state.selectedSafeId,
         };
 
   const nextApp = appReducer(appState, action);

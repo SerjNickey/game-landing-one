@@ -1,8 +1,10 @@
 import { useSelector } from "./hooks/useSelector.js";
 import { LandingPage } from "./widgets/LandingPage/LandingPage.js";
+import { DesktopSafeClicked } from "./widgets/DesktopSafeClicked/DesktopSafeClicked.js";
 
 const widgets = {
   landing: LandingPage,
+  desktopSafeClicked: DesktopSafeClicked,
 };
 
 const App = () => {

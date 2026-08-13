@@ -1,6 +1,7 @@
 import confetti from "canvas-confetti";
 import cursorUrl from "../../../public/images/GameSafe/cursor.png";
-import "./GameSafe.css";
+import { DGameSafeOpened } from "../DGameSafeOpened/DGameSafeOpened.js";
+import "./DGameSafe.css";
 
 const SIZE = 160;
 const STROKE = 5;
@@ -144,7 +145,7 @@ function setArc(circle, start, end) {
   circle.setAttribute("stroke-dashoffset", String(-from * CIRCUMFERENCE));
 }
 
-export const GameSafe = () => {
+export const DGameSafe = () => {
   const el = document.createElement("div");
   el.className = "game-safe__container";
 
@@ -271,9 +272,11 @@ export const GameSafe = () => {
       won = true;
       console.log("You Win!");
       burstConfettiFrom(el, () => {
-        // Hidden under opaque blanket — swap closed → open safe art here.
-        el.style.backgroundImage = 'url("/images/GameSafe/blue.png")';
-        ring.style.visibility = "hidden";
+        const opened = DGameSafeOpened();
+        const flash = el.querySelector(".game-safe__flash");
+        el.replaceWith(opened);
+        // Keep the white flash on top of the new screen until it fades out.
+        if (flash) opened.append(flash);
       });
       return;
     }

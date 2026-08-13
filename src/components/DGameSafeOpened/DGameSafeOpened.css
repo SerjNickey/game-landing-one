@@ -1,0 +1,20 @@
+.game-safe-opened__container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 340px; */
+  /* height: 300px; */
+  width: 470px;
+  height: 400px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: transparent;
+  background-image: url("/images/GameSafe/blue_opened.png");
+  /* background-size: auto 400px; */
+  background-size: auto 540px;
+  background-position: left -70px center;
+  background-repeat: no-repeat;
+}

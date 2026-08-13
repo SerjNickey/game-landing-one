@@ -1,0 +1,118 @@
+.desktop-safe-clicked__page {
+  min-width: 0;
+  max-width: 1920px;
+  width: 100%;
+}
+
+.desktop-safe-clicked__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0;
+  width: 100%;
+  min-height: 530px;
+  height: auto;
+  background-color: transparent;
+}
+
+.desktop-safe-clicked__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.desktop-safe-clicked__item:not(.desktop-safe-clicked__item--center) {
+  opacity: 0.2;
+}
+
+.desktop-safe-clicked__item--center {
+  position: relative;
+  /* Space for title sitting above / behind the safe. */
+  padding-top: 74px;
+  /* Gap between side safes = this column width. */
+  width: 345px;
+  flex: 0 0 345px;
+}
+
+.desktop-safe-clicked__title {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fef9df;
+}
+
+.desktop-safe-clicked__item--center .desktop-safe-clicked__title {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  font-size: 36px;
+  line-height: 44px;
+}
+
+.desktop-safe-clicked__item--center:has(.game-safe-opened__container)
+  .desktop-safe-clicked__title {
+  transform: translateX(calc(-50% - 35px));
+}
+
+.desktop-safe-clicked__safe {
+  width: 343px;
+  height: 360px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.desktop-safe-clicked__safe--common {
+  background-image: image-set(
+    url("/images/SafesList/common_95PER.avif") type("image/avif"),
+    url("/images/SafesList/common_95PER.webp") type("image/webp")
+  );
+}
+
+.desktop-safe-clicked__safe--rare {
+  background-image: image-set(
+    url("/images/SafesList/rare_95PER.avif") type("image/avif"),
+    url("/images/SafesList/rare_95PER.webp") type("image/webp")
+  );
+}
+
+.desktop-safe-clicked__safe--epic {
+  background-image: image-set(
+    url("/images/SafesList/epic_95PER.avif") type("image/avif"),
+    url("/images/SafesList/epic_95PER.webp") type("image/webp")
+  );
+}
+
+/* Middle host — 400px between side safes; overflow so open art doesn't shift them. */
+.desktop-safe-clicked__slot {
+  position: relative;
+  margin-bottom: -20px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  min-height: 400px;
+  flex: 0 0 400px;
+  overflow: visible;
+}
+
+.desktop-safe-clicked__slot .game-safe__container,
+.desktop-safe-clicked__slot .game-safe-opened__container {
+  margin: 0;
+  flex-shrink: 0;
+}
