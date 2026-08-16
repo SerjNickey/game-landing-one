@@ -1,0 +1,153 @@
+.d-final-block {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1029px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+  box-sizing: border-box;
+}
+
+.d-final-block__claim {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.d-final-block__lead {
+  margin: 0 0 8px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.d-final-block__won {
+  margin: 0 0 20px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.d-final-block__won b {
+  font-weight: 700;
+}
+
+.d-final-block__actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.d-final-block__claim-btn {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 221px;
+  height: 56px;
+  padding: 15px 20px;
+  border: none;
+  background: #d70022;
+  border-radius: 6px;
+  color: #ffffff;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.d-final-block__claim-btn:hover {
+  filter: brightness(1.05);
+}
+
+.d-final-block__claim-timer {
+  font-variant-numeric: tabular-nums;
+}
+
+.d-final-block__refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin: 0;
+  padding: 0;
+  background: rgba(70, 70, 70, 0.15);
+  border: 1px solid #464646;
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.d-final-block__refresh-btn:hover {
+  filter: brightness(1.15);
+}
+
+.d-final-block__refresh-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.d-final-block__divider {
+  width: 100%;
+  max-width: 1200px;
+  height: 2px;
+  margin: 28px 0 20px;
+  background: linear-gradient(90deg, #0a0a0a 0%, #d70022 50%, #0a0a0a 100%);
+}
+
+.d-final-block__other {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.d-final-block__heading {
+  margin: 0 0 16px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.d-final-block__prizes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.d-final-block__prize-card {
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.d-final-block__prize-card--one {
+  background-image: url("/images/infoBlock/prize_one_95PER.webp");
+}
+
+.d-final-block__prize-card--two {
+  background-image: url("/images/infoBlock/prize_two_95PER.webp");
+}

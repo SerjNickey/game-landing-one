@@ -1,12 +1,16 @@
 import { useDispatch } from "../../hooks/useSelector.js";
 import { setCurrentStep, setSelectedSafe } from "../../store/actions.js";
 import { DESKTOP_SAFES } from "../../constants/desktopSafes.js";
+import { DInfoBlock } from "../../components/DInfoBlock/DInfoBlock.js";
 import "./DesktopSafesList.css";
 
 export const DesktopSafesList = () => {
   const dispatch = useDispatch();
   const el = document.createElement("div");
-  el.className = "desktop-safes-list__container";
+  el.className = "desktop-safes-list";
+
+  const row = document.createElement("div");
+  row.className = "desktop-safes-list__container";
 
   for (const safe of DESKTOP_SAFES) {
     const item = document.createElement("div");
@@ -26,8 +30,9 @@ export const DesktopSafesList = () => {
     });
 
     item.append(title, button);
-    el.append(item);
+    row.append(item);
   }
 
+  el.append(row, DInfoBlock());
   return el;
 };

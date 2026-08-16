@@ -4,6 +4,14 @@
   width: 100%;
 }
 
+.desktop-safe-clicked__page:has(.game-safe-opened__container) .d-info-block {
+  display: none;
+}
+
+.desktop-safe-clicked__page:has(.game-safe-opened__container) .d-final-block {
+  display: flex;
+}
+
 .desktop-safe-clicked__container {
   display: flex;
   flex-direction: row;
@@ -14,6 +22,7 @@
   min-height: 530px;
   height: auto;
   background-color: transparent;
+  margin-bottom: 40px;
 }
 
 .desktop-safe-clicked__item {
@@ -77,24 +86,15 @@
 }
 
 .desktop-safe-clicked__safe--common {
-  background-image: image-set(
-    url("/images/SafesList/common_95PER.avif") type("image/avif"),
-    url("/images/SafesList/common_95PER.webp") type("image/webp")
-  );
+  background-image: url("/images/SafesList/common_95PER.webp");
 }
 
 .desktop-safe-clicked__safe--rare {
-  background-image: image-set(
-    url("/images/SafesList/rare_95PER.avif") type("image/avif"),
-    url("/images/SafesList/rare_95PER.webp") type("image/webp")
-  );
+  background-image: url("/images/SafesList/rare_95PER.webp");
 }
 
 .desktop-safe-clicked__safe--epic {
-  background-image: image-set(
-    url("/images/SafesList/epic_95PER.avif") type("image/avif"),
-    url("/images/SafesList/epic_95PER.webp") type("image/webp")
-  );
+  background-image: url("/images/SafesList/epic_95PER.webp");
 }
 
 /* Middle host — 400px between side safes; overflow so open art doesn't shift them. */

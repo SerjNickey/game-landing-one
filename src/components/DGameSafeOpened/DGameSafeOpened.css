@@ -21,51 +21,39 @@
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background-image: image-set(
-    url("/images/GameSafe/first_prize_95PER.avif") type("image/avif"),
-    url("/images/GameSafe/first_prize_95PER.webp") type("image/webp")
-  );
+  background-image: url("/images/GameSafe/first_prize_95PER.webp");
   background-repeat: no-repeat;
 }
 
 .game-safe-opened__container--common {
-  background-image: image-set(
-    url("/images/GameSafe/common_opened_95PER.avif") type("image/avif"),
-    url("/images/GameSafe/common_opened_95PER.webp") type("image/webp")
-  );
+  background-image: url("/images/GameSafe/common_opened_95PER.webp");
   background-position: left -70px center;
   background-size: auto 540px;
 }
 
 .game-safe-opened__container--common::after {
-  background-position: 115px 140px;
+  background-position: 108px 140px;
   background-size: auto 130px;
 }
 
 .game-safe-opened__container--rare {
-  background-image: image-set(
-    url("/images/GameSafe/rare_opened_95PER.avif") type("image/avif"),
-    url("/images/GameSafe/rare_opened_95PER.webp") type("image/webp")
-  );
+  background-image: url("/images/GameSafe/rare_opened_95PER.webp");
   background-position: left -45px bottom -50px;
   background-size: auto 515px;
 }
 
 .game-safe-opened__container--rare::after {
-  background-position: 120px 140px;
+  background-position: 110px 140px;
   background-size: auto 130px;
 }
 
 .game-safe-opened__container--epic {
-  background-image: image-set(
-    url("/images/GameSafe/epic_opened_95PER.avif") type("image/avif"),
-    url("/images/GameSafe/epic_opened_95PER.webp") type("image/webp")
-  );
+  background-image: url("/images/GameSafe/epic_opened_95PER.webp");
   background-position: left -45px bottom -50px;
   background-size: auto 515px;
 }
 
 .game-safe-opened__container--epic::after {
-  background-position: 120px 140px;
+  background-position: 110px 140px;
   background-size: auto 130px;
 }

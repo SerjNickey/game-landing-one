@@ -22,24 +22,15 @@
 }
 
 .game-safe__container--common {
-  background-image: image-set(
-    url("/images/GameSafe/common_closed_95PER.avif") type("image/avif"),
-    url("/images/GameSafe/common_closed_95PER.webp") type("image/webp")
-  );
+  background-image: url("/images/GameSafe/common_closed_95PER.webp");
 }
 
 .game-safe__container--rare {
-  background-image: image-set(
-    url("/images/GameSafe/rare_closed_95PER.avif") type("image/avif"),
-    url("/images/GameSafe/rare_closed_95PER.webp") type("image/webp")
-  );
+  background-image: url("/images/GameSafe/rare_closed_95PER.webp");
 }
 
 .game-safe__container--epic {
-  background-image: image-set(
-    url("/images/GameSafe/epic_closed_95PER.avif") type("image/avif"),
-    url("/images/GameSafe/epic_closed_95PER.webp") type("image/webp")
-  );
+  background-image: url("/images/GameSafe/epic_closed_95PER.webp");
 }
 
 .game-safe__flash {
@@ -64,11 +55,8 @@
   align-items: center;
   width: 222px;
   height: 222px;
-  background: image-set(
-      url("/images/GameSafe/middle_95PER.avif") type("image/avif"),
-      url("/images/GameSafe/middle_95PER.webp") type("image/webp")
-    )
-    center / contain no-repeat;
+  background: url("/images/GameSafe/middle_95PER.webp") center / contain
+    no-repeat;
 }
 
 .game-safe__svg {

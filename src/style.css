@@ -1,17 +1,113 @@
+html,
 body {
   margin: 0;
-  min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
   font-family: system-ui, sans-serif;
   background-color: rgba(10, 10, 10, 1);
 }
 
 #root {
   width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .app {
   max-width: 1920px;
   width: 100%;
-  height: auto;
+  height: 100%;
   margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  --layout-scale: 1;
+
+  @media (min-width: 1025px) {
+    --layout-scale: 0.533;
+    background-image: url("/images/Global/back_80PER.webp");
+    background-position: top center;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+  }
+  @media (min-width: 1097px) {
+    --layout-scale: 0.571;
+  }
+  @media (min-width: 1152px) {
+    --layout-scale: 0.6;
+  }
+  @media (min-width: 1176px) {
+    --layout-scale: 0.613;
+  }
+  @media (min-width: 1280px) {
+    --layout-scale: 0.667;
+  }
+  @media (min-width: 1360px) {
+    --layout-scale: 0.708;
+  }
+  @media (min-width: 1366px) {
+    --layout-scale: 0.713;
+  }
+  @media (min-width: 1440px) {
+    --layout-scale: 0.75;
+  }
+  @media (min-width: 1463px) {
+    --layout-scale: 0.762;
+  }
+  @media (min-width: 1536px) {
+    --layout-scale: 0.8;
+  }
+  @media (min-width: 1600px) {
+    --layout-scale: 0.833;
+  }
+  @media (min-width: 1680px) {
+    --layout-scale: 0.875;
+  }
+  @media (min-width: 1707px) {
+    --layout-scale: 0.889;
+  }
+  @media (min-width: 1720px) {
+    --layout-scale: 0.896;
+  }
+  @media (min-width: 1920px) {
+    --layout-scale: 1;
+  }
+  @media (min-width: 1965px) {
+    --layout-scale: 1.023;
+  }
+  @media (min-width: 2048px) {
+    --layout-scale: 1.067;
+  }
+  @media (min-width: 2293px) {
+    --layout-scale: 1.194;
+  }
+  @media (min-width: 2560px) {
+    --layout-scale: 1.333;
+  }
+  @media (min-width: 2752px) {
+    --layout-scale: 1.433;
+  }
+  @media (min-width: 3440px) {
+    --layout-scale: 1.792;
+  }
+  @media (min-width: 3840px) {
+    --layout-scale: 2;
+  }
+  @media (min-width: 5120px) {
+    --layout-scale: 2.667;
+  }
+
+  @media (min-width: 1025px) {
+    zoom: var(--layout-scale);
+    height: calc(100vh / var(--layout-scale));
+  }
+
+  @supports not (zoom: 1) {
+    @media (min-width: 1025px) {
+      width: calc(100% / var(--layout-scale));
+      max-width: calc(1920px / var(--layout-scale));
+      height: calc(100vh / var(--layout-scale));
+      transform: scale(var(--layout-scale));
+      transform-origin: top center;
+    }
+  }
 }

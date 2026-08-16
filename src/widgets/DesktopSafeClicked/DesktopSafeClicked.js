@@ -1,5 +1,7 @@
 import { Header } from "../../components/Header/Header.js";
 import { DGameSafe } from "../../components/DGameSafe/DGameSafe.js";
+import { DInfoBlock } from "../../components/DInfoBlock/DInfoBlock.js";
+import { DFinalBlock } from "../../components/DFinalBlock/DFinalBlock.js";
 import { useSelector } from "../../hooks/useSelector.js";
 import { arrangeSafesWithCenter } from "../../constants/desktopSafes.js";
 import "./DesktopSafeClicked.css";
@@ -48,6 +50,6 @@ export const DesktopSafeClicked = () => {
     row.append(item);
   }
 
-  el.append(row);
+  el.append(row, DInfoBlock(), DFinalBlock());
   return el;
 };

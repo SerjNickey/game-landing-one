@@ -190,10 +190,6 @@ export const DGameSafe = () => {
   const cursorOrbit = document.createElement("div");
   cursorOrbit.className = "game-safe__cursor-orbit";
 
-  const cursorPicture = document.createElement("picture");
-  const cursorAvif = document.createElement("source");
-  cursorAvif.type = "image/avif";
-  cursorAvif.srcset = "/images/GameSafe/cursor_95PER.avif";
   const cursor = document.createElement("img");
   cursor.className = "game-safe__cursor";
   cursor.src = "/images/GameSafe/cursor_95PER.webp";
@@ -201,8 +197,7 @@ export const DGameSafe = () => {
   cursor.width = 30;
   cursor.height = 30;
   cursor.draggable = false;
-  cursorPicture.append(cursorAvif, cursor);
-  cursorOrbit.append(cursorPicture);
+  cursorOrbit.append(cursor);
 
   const button = document.createElement("button");
   button.type = "button";
