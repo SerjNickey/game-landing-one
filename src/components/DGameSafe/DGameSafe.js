@@ -1,11 +1,11 @@
 import confetti from "canvas-confetti";
-import cursorUrl from "../../../public/images/GameSafe/cursor.png";
 import { DGameSafeOpened } from "../DGameSafeOpened/DGameSafeOpened.js";
+import { useSelector } from "../../hooks/useSelector.js";
 import "./DGameSafe.css";
 
-const SIZE = 160;
-const STROKE = 5;
-/** middle.png is 170×170; tick marks sit near r≈79 in source pixels. */
+const SIZE = 222;
+const STROKE = 10;
+/** middle art is 170×170; tick marks sit near r≈79 in source pixels. */
 const MIDDLE_SIZE = 170;
 const MIDDLE_TICK_RADIUS = 79;
 /** Progress + cursor share the tick ring radius (scaled into SIZE). */
@@ -146,8 +146,10 @@ function setArc(circle, start, end) {
 }
 
 export const DGameSafe = () => {
+  const selectedSafeId =
+    useSelector((state) => state.selectedSafeId) ?? "common";
   const el = document.createElement("div");
-  el.className = "game-safe__container";
+  el.className = `game-safe__container game-safe__container--${selectedSafeId}`;
 
   const ring = document.createElement("div");
   ring.className = "game-safe__ring";
@@ -188,19 +190,24 @@ export const DGameSafe = () => {
   const cursorOrbit = document.createElement("div");
   cursorOrbit.className = "game-safe__cursor-orbit";
 
+  const cursorPicture = document.createElement("picture");
+  const cursorAvif = document.createElement("source");
+  cursorAvif.type = "image/avif";
+  cursorAvif.srcset = "/images/GameSafe/cursor_95PER.avif";
   const cursor = document.createElement("img");
   cursor.className = "game-safe__cursor";
-  cursor.src = cursorUrl;
+  cursor.src = "/images/GameSafe/cursor_95PER.webp";
   cursor.alt = "";
   cursor.width = 30;
   cursor.height = 30;
   cursor.draggable = false;
-  cursorOrbit.append(cursor);
+  cursorPicture.append(cursorAvif, cursor);
+  cursorOrbit.append(cursorPicture);
 
   const button = document.createElement("button");
   button.type = "button";
-  button.className = "game-safe__btn";
-  button.textContent = "O";
+  button.className = "game-safe__btn game-safe__btn--idle";
+  button.textContent = "HOLD\nTO OPEN";
 
   let rafId = 0;
   let vibeId = 0;
@@ -272,7 +279,7 @@ export const DGameSafe = () => {
       won = true;
       console.log("You Win!");
       burstConfettiFrom(el, () => {
-        const opened = DGameSafeOpened();
+        const opened = DGameSafeOpened({ safeId: selectedSafeId });
         const flash = el.querySelector(".game-safe__flash");
         el.replaceWith(opened);
         // Keep the white flash on top of the new screen until it fades out.
@@ -317,6 +324,9 @@ export const DGameSafe = () => {
   button.addEventListener("pointerdown", (event) => {
     event.preventDefault();
     button.setPointerCapture(event.pointerId);
+    button.textContent = "STOP";
+    button.classList.remove("game-safe__btn--idle");
+    button.classList.add("game-safe__btn--holding");
 
     if (!won && !animating && filled < 1) {
       startVibe();
@@ -325,6 +335,9 @@ export const DGameSafe = () => {
   });
 
   const freeze = () => {
+    button.textContent = "HOLD\nTO OPEN";
+    button.classList.remove("game-safe__btn--holding");
+    button.classList.add("game-safe__btn--idle");
     if (!animating) return;
     stop();
     resolveStop();

@@ -4,19 +4,42 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* width: 340px; */
-  /* height: 300px; */
   width: 400px;
   height: 400px;
   padding: 0;
   margin: 0 auto 0 auto;
   box-sizing: border-box;
   background-color: transparent;
-  background-image: url("/images/GameSafe/blue_closed.png");
-  /* background-size: 343px 360px; */
   background-size: auto 480px;
   background-position: center;
   background-repeat: no-repeat;
+  /* transition: filter 0.3s ease; */
+  /* filter: brightness(1.4); */
+}
+.game-safe__container:hover {
+  /* filter: brightness(1.4); */
+  cursor: pointer;
+}
+
+.game-safe__container--common {
+  background-image: image-set(
+    url("/images/GameSafe/common_closed_95PER.avif") type("image/avif"),
+    url("/images/GameSafe/common_closed_95PER.webp") type("image/webp")
+  );
+}
+
+.game-safe__container--rare {
+  background-image: image-set(
+    url("/images/GameSafe/rare_closed_95PER.avif") type("image/avif"),
+    url("/images/GameSafe/rare_closed_95PER.webp") type("image/webp")
+  );
+}
+
+.game-safe__container--epic {
+  background-image: image-set(
+    url("/images/GameSafe/epic_closed_95PER.avif") type("image/avif"),
+    url("/images/GameSafe/epic_closed_95PER.webp") type("image/webp")
+  );
 }
 
 .game-safe__flash {
@@ -39,9 +62,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 160px;
-  height: 160px;
-  background: url("/images/GameSafe/middle.png") center / contain no-repeat;
+  width: 222px;
+  height: 222px;
+  background: image-set(
+      url("/images/GameSafe/middle_95PER.avif") type("image/avif"),
+      url("/images/GameSafe/middle_95PER.webp") type("image/webp")
+    )
+    center / contain no-repeat;
 }
 
 .game-safe__svg {
@@ -77,9 +104,9 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 30px;
-  height: 30px;
-  margin: -15px 0 0 -16px;
+  width: 37px; /* 30 for mobile */
+  height: 37px; /* 30 for mobile */
+  margin: -13px 0 0 -20px;
   transform: translateY(calc(var(--game-safe-radius) * -1))
     rotate(var(--game-safe-cursor-rotate));
   user-select: none;
@@ -90,17 +117,27 @@
   position: relative;
   z-index: 1;
   margin: 0;
-  padding: 0 20px;
-  height: 44px;
+  width: 110px;
+  height: 110px;
   border: none;
-  border-radius: 6px;
-  background: #d70022;
-  color: #ffffff;
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
+  border-radius: 50%;
+  background: transparent;
+  font-family: "Montserrat";
+  font-style: normal;
   font-weight: 700;
+  font-size: 16px;
+  line-height: 117%;
   text-transform: uppercase;
+  white-space: pre-line;
   cursor: pointer;
   user-select: none;
   touch-action: none;
+}
+
+.game-safe__btn--idle {
+  color: #ffffff;
+}
+
+.game-safe__btn--holding {
+  color: rgba(255, 255, 255, 0.25);
 }
