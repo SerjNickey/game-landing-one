@@ -1,0 +1,132 @@
+.d-info-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1029px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+  box-sizing: border-box;
+}
+
+.d-info-block__toggle {
+  border: none;
+  outline: none;
+  margin: 0 0 28px;
+  padding: 12px;
+  border-radius: 6px;
+  background: rgba(91, 91, 91, 0.4);
+  color: #ffffff;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.01px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.d-info-block__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.d-info-block__heading {
+  margin: 0 0 28px;
+  color: #ffffff;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+}
+
+.d-info-block__steps {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+}
+
+.d-info-block__step {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 270px;
+}
+
+.d-info-block__step-index {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.d-info-block__step-index--one {
+  background-image: url("/images/infoBlock/i_one_95PER.webp");
+}
+
+.d-info-block__step-index--two {
+  background-image: url("/images/infoBlock/i_two_95PER.webp");
+}
+
+.d-info-block__step-index--three {
+  background-image: url("/images/infoBlock/i_three_95PER.webp");
+}
+
+.d-info-block__step-body {
+  min-width: 0;
+}
+
+.d-info-block__step-text {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 140%;
+  color: rgba(146, 146, 150, 1);
+}
+
+.d-info-block__step-text b {
+  color: #ffffff;
+}
+
+.d-info-block__prizes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+}
+
+.d-info-block__prize-card {
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.d-info-block__prize-card--one {
+  background-image: url("/images/infoBlock/prize_one_95PER.webp");
+}
+
+.d-info-block__prize-card--two {
+  background-image: url("/images/infoBlock/prize_two_95PER.webp");
+}
+
+.d-info-block__prize-card--three {
+  background-image: url("/images/infoBlock/prize_three_95PER.webp");
+}

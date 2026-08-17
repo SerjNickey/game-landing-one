@@ -1,0 +1,121 @@
+.m-final-block {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 390px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+  box-sizing: border-box;
+}
+
+.m-final-block__claim {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.m-final-block__actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin: 10px 0 10px 0;
+}
+
+.m-final-block__claim-btn {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1 1 1;
+  width: auto;
+  height: 37px;
+  margin: 0;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #d70022;
+  color: #ffffff;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.m-final-block__claim-timer {
+  font-variant-numeric: tabular-nums;
+}
+
+.m-final-block__refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
+  margin: 0;
+  padding: 0;
+  background: rgba(70, 70, 70, 0.15);
+  border: 1px solid #464646;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.m-final-block__refresh-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.m-final-block__divider {
+  width: 100%;
+  height: 2px;
+  margin: 15px 0 20px 0;
+  background: linear-gradient(90deg, #0a0a0a 0%, #d70022 50%, #0a0a0a 100%);
+}
+
+.m-final-block__other {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.m-final-block__heading {
+  margin: 0 0 20px 0;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.m-final-block__prizes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 8px;
+}
+
+.m-final-block__prize-card {
+  width: 96px;
+  height: 96px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.m-final-block__prize-card--one {
+  background-image: url("/images/infoBlock/prize_one_95PER.webp");
+}
+
+.m-final-block__prize-card--two {
+  background-image: url("/images/infoBlock/prize_two_95PER.webp");
+}

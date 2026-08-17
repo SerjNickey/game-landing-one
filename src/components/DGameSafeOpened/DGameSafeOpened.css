@@ -1,0 +1,59 @@
+.game-safe-opened__container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 470px;
+  height: 400px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: transparent;
+  background-size: auto 540px;
+  background-repeat: no-repeat;
+  /* filter: brightness(1.4); */
+}
+
+.game-safe-opened__container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background-image: url("/images/GameSafe/first_prize_95PER.webp");
+  background-repeat: no-repeat;
+}
+
+.game-safe-opened__container--common {
+  background-image: url("/images/GameSafe/common_opened_95PER.webp");
+  background-position: left -70px center;
+  background-size: auto 540px;
+}
+
+.game-safe-opened__container--common::after {
+  background-position: 108px 140px;
+  background-size: auto 130px;
+}
+
+.game-safe-opened__container--rare {
+  background-image: url("/images/GameSafe/rare_opened_95PER.webp");
+  background-position: left -45px bottom -50px;
+  background-size: auto 515px;
+}
+
+.game-safe-opened__container--rare::after {
+  background-position: 110px 140px;
+  background-size: auto 130px;
+}
+
+.game-safe-opened__container--epic {
+  background-image: url("/images/GameSafe/epic_opened_95PER.webp");
+  background-position: left -45px bottom -50px;
+  background-size: auto 515px;
+}
+
+.game-safe-opened__container--epic::after {
+  background-position: 110px 140px;
+  background-size: auto 130px;
+}

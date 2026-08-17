@@ -1,0 +1,131 @@
+.game-safe__container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  padding: 0;
+  margin: 0 auto 0 auto;
+  box-sizing: border-box;
+  background-color: transparent;
+  background-size: auto 480px;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* transition: filter 0.3s ease; */
+  /* filter: brightness(1.4); */
+}
+.game-safe__container:hover {
+  /* filter: brightness(1.4); */
+  cursor: pointer;
+}
+
+.game-safe__container--common {
+  background-image: url("/images/GameSafe/common_closed_95PER.webp");
+}
+
+.game-safe__container--rare {
+  background-image: url("/images/GameSafe/rare_closed_95PER.webp");
+}
+
+.game-safe__container--epic {
+  background-image: url("/images/GameSafe/epic_closed_95PER.webp");
+}
+
+.game-safe__flash {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  /* background: #ffffff; */
+  background-color: transparent;
+  opacity: 1;
+  transition: opacity 0.45s ease-out;
+}
+
+.game-safe__flash--fade {
+  opacity: 0;
+}
+
+.game-safe__ring {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 222px;
+  height: 222px;
+  background: url("/images/GameSafe/middle_95PER.webp") center / contain
+    no-repeat;
+}
+
+.game-safe__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.game-safe__track {
+  stroke: transparent;
+}
+
+.game-safe__progress--red {
+  stroke: rgba(215, 0, 34, 0.39);
+}
+
+.game-safe__progress--green {
+  stroke: rgba(48, 164, 91, 0.66);
+}
+
+.game-safe__cursor-orbit {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.game-safe__cursor {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 27px; /* 30 for mobile */
+  height: 37px; /* 30 for mobile */
+  margin: -13px 0 0 -12px;
+  transform: translateY(calc(var(--game-safe-radius) * -1))
+    rotate(var(--game-safe-cursor-rotate));
+  user-select: none;
+  pointer-events: none;
+}
+
+.game-safe__btn {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  width: 110px;
+  height: 110px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 117%;
+  text-transform: uppercase;
+  white-space: pre-line;
+  cursor: pointer;
+  user-select: none;
+  touch-action: none;
+}
+
+.game-safe__btn--idle {
+  color: #ffffff;
+}
+
+.game-safe__btn--holding {
+  color: rgba(255, 255, 255, 0.25);
+}

@@ -1,0 +1,9 @@
+#webview-close-btn {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #84858a;
+  backdrop-filter: blur(12.5px);
+  border-radius: 6px;
+  background: transparent;
+  outline: none;
+}

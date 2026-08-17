@@ -1,0 +1,68 @@
+.desktop-safes-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.desktop-safes-list__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0;
+  width: 100%;
+  height: 500px;
+  background-color: transparent;
+}
+
+.desktop-safes-list__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.desktop-safes-list__title {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #fef9df;
+}
+
+.desktop-safes-list__btn {
+  width: 343px;
+  height: 360px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.desktop-safes-list__btn:hover {
+  filter: brightness(1.4);
+}
+
+.desktop-safes-list__btn--common {
+  background-image: url("/images/SafesList/common_95PER.webp");
+}
+
+.desktop-safes-list__btn--rare {
+  background-image: url("/images/SafesList/rare_95PER.webp");
+}
+
+.desktop-safes-list__btn--epic {
+  background-image: url("/images/SafesList/epic_95PER.webp");
+}

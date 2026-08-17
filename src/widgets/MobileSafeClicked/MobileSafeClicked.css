@@ -1,0 +1,68 @@
+.mobile-safe-clicked__page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+.mobile-safe-clicked__page:has(.m-game-safe-opened__container) .m-info-block,
+.mobile-safe-clicked__page:has(.m-game-safe-opened__container)
+  .mobile-safe-clicked__nav-toggle {
+  display: none;
+}
+
+.mobile-safe-clicked__page:has(.m-game-safe-opened__container) .m-final-block {
+  display: flex;
+}
+
+.mobile-safe-clicked__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.mobile-safe-clicked__title {
+  margin: 40px 0 20px 0;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fef9df;
+}
+
+.mobile-safe-clicked__slot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 300px;
+}
+
+.mobile-safe-clicked__slot .m-game-safe__container,
+.mobile-safe-clicked__slot .m-game-safe-opened__container {
+  margin: 0;
+}
+
+.mobile-safe-clicked__nav-toggle {
+  width: auto;
+  height: 37px;
+  margin-top: 30px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(91, 91, 91, 0.45);
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.01px;
+  text-transform: uppercase;
+  cursor: pointer;
+}

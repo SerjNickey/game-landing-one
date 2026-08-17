@@ -1,0 +1,7 @@
+.landing-page__container {
+  min-width: 0;
+  max-width: 1920px;
+  width: 100%;
+  min-height: 100px;
+  height: auto;
+}

@@ -1,0 +1,107 @@
+.m-info-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 8px 16px 40px 16px;
+  box-sizing: border-box;
+}
+
+.m-info-block__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.m-info-block__heading {
+  margin: 0 0 20px;
+  color: #ffffff;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+}
+
+.m-info-block__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.m-info-block__step {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.m-info-block__step-index {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.m-info-block__step-index--one {
+  background-image: url("/images/infoBlock/i_one_95PER.webp");
+}
+
+.m-info-block__step-index--two {
+  background-image: url("/images/infoBlock/i_two_95PER.webp");
+}
+
+.m-info-block__step-index--three {
+  background-image: url("/images/infoBlock/i_three_95PER.webp");
+}
+
+.m-info-block__step-text {
+  min-width: 0;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 140%;
+  color: rgba(146, 146, 150, 1);
+}
+
+.m-info-block__step-text b {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.m-info-block__prizes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+}
+
+.m-info-block__prize-card {
+  width: 96px;
+  height: 96px;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.m-info-block__prize-card--one {
+  background-image: url("/images/infoBlock/prize_one_95PER.webp");
+}
+
+.m-info-block__prize-card--two {
+  background-image: url("/images/infoBlock/prize_two_95PER.webp");
+}
+
+.m-info-block__prize-card--three {
+  background-image: url("/images/infoBlock/prize_three_95PER.webp");
+}
