@@ -1,4 +1,5 @@
 import confetti from "canvas-confetti";
+import { preloadOpenedSafeImages } from "./preloadOpenedSafe.js";
 
 const MIDDLE_SIZE = 170;
 const MIDDLE_TICK_RADIUS = 79;
@@ -47,8 +48,11 @@ export function createGameSafe({
   const circumference = 2 * Math.PI * radius;
   const p = classPrefix;
 
+  preloadOpenedSafeImages(selectedSafeId);
+
   const el = document.createElement("div");
   el.className = `${p}__container ${p}__container--${selectedSafeId}`;
+  el.style.backgroundImage = `url("/images/GameSafe/${selectedSafeId}_closed_95PER.webp")`;
 
   const ring = document.createElement("div");
   ring.className = `${p}__ring`;

@@ -11,5 +11,10 @@ export const MGameSafeOpened = ({ safeId } = {}) => {
 
   const el = document.createElement("div");
   el.className = `m-game-safe-opened__container m-game-safe-opened__container--${selectedSafeId}`;
+  el.style.backgroundImage = `url("/images/GameSafe/${selectedSafeId}_opened_95PER.webp")`;
+  el.style.setProperty(
+    "--opened-prize-image",
+    'url("/images/GameSafe/first_prize_95PER.webp")',
+  );
   return el;
 };
