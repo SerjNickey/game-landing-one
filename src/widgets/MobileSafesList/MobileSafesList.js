@@ -6,6 +6,7 @@ import {
 } from "../../store/actions.js";
 import { DESKTOP_SAFES } from "../../constants/desktopSafes.js";
 import { MInfoBlock } from "../../components/MInfoBlock/MInfoBlock.js";
+import { preloadOpenedSafeImages } from "../../hooks/preloadOpenedSafe.js";
 import "./MobileSafesList.css";
 
 /** Persist index across remounts so translateX can animate. */
@@ -70,6 +71,7 @@ export const MobileSafesList = () => {
 
     item.append(art);
     item.addEventListener("click", () => {
+      preloadOpenedSafeImages(safe.id);
       dispatch(setSelectedSafe(safe.id));
       dispatch(setCurrentStep("desktopSafeClicked"));
     });

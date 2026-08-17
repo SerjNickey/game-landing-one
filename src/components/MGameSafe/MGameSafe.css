@@ -15,18 +15,6 @@
   background-repeat: no-repeat;
 }
 
-.m-game-safe__container--common {
-  background-image: url("/images/GameSafe/common_closed_95PER.webp");
-}
-
-.m-game-safe__container--rare {
-  background-image: url("/images/GameSafe/rare_closed_95PER.webp");
-}
-
-.m-game-safe__container--epic {
-  background-image: url("/images/GameSafe/epic_closed_95PER.webp");
-}
-
 .m-game-safe__flash {
   position: absolute;
   inset: 0;

@@ -19,12 +19,11 @@
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background-image: url("/images/GameSafe/first_prize_95PER.webp");
+  background-image: var(--opened-prize-image);
   background-repeat: no-repeat;
 }
 
 .m-game-safe-opened__container--common {
-  background-image: url("/images/GameSafe/common_opened_95PER.webp");
   background-position: left -70px center;
   background-size: auto 500px;
 }
@@ -35,7 +34,6 @@
 }
 
 .m-game-safe-opened__container--rare {
-  background-image: url("/images/GameSafe/rare_opened_95PER.webp");
   background-position: left -55px bottom -50px;
   background-size: auto 490px;
 }
@@ -46,7 +44,6 @@
 }
 
 .m-game-safe-opened__container--epic {
-  background-image: url("/images/GameSafe/epic_opened_95PER.webp");
   background-position: left -55px bottom -50px;
   background-size: auto 490px;
 }
