@@ -31,9 +31,19 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
       />
     </noscript>
+
+    <style>
+      #loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background-color: #0a0a0a;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <div id="loader" class="loader" aria-busy="true"></div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
