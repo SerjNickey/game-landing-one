@@ -47,6 +47,8 @@
   background-size: contain;
   cursor: pointer;
   transition: filter 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
 .desktop-safes-list__btn:hover {

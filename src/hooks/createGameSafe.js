@@ -17,7 +17,8 @@ const VIBE_PATTERN = [
   VIBE_GAP_MS,
 ];
 const VIBE_REPEAT_MS = VIBE_PATTERN.reduce((sum, ms) => sum + ms, 0);
-const CURSOR_TIP_ROTATE_DEG = -225;
+/** New cursor asset already points up (tip at 12 o'clock). */
+const CURSOR_TIP_ROTATE_DEG = 0;
 const CONFETTI_COLORS = ["#FF2D2D", "#FF6A00", "#FFB800", "#FFE566", "#E10600"];
 const FLASH_HOLD_MS = 120;
 const FLASH_FADE_MS = 450;
@@ -119,7 +120,7 @@ export function createGameSafe({
 
   const cursor = document.createElement("img");
   cursor.className = `${p}__cursor`;
-  cursor.src = "/images/GameSafe/cursor_95PER.webp";
+  cursor.src = "/images/GameSafe/cursor_95PER.avif";
   cursor.alt = "";
   cursor.width = cursorSize;
   cursor.height = cursorSize;

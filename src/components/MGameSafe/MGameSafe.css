@@ -1,5 +1,4 @@
 .m-game-safe__container {
-  border: 1px solid red;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -43,7 +42,6 @@
 }
 
 .m-game-safe__ring {
-  border: 1px solid green;
   position: relative;
   display: flex;
   justify-content: center;
@@ -87,9 +85,9 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 30px;
+  width: 20px;
   height: 30px;
-  margin: -10px 0 0 -16px;
+  margin: -16px 0 0 -9px;
   transform: translateY(calc(var(--game-safe-radius) * -1))
     rotate(var(--game-safe-cursor-rotate));
   user-select: none;
@@ -123,4 +121,11 @@
 
 .m-game-safe__btn--holding {
   color: rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 360px) {
+  .m-game-safe__container {
+    height: 360px;
+    background-size: auto 440px;
+  }
 }

@@ -6,12 +6,11 @@
 }
 
 .mobile-safes-list__title {
-  margin: 8px 0 4px;
-  font-family: "Montserrat", sans-serif;
+  margin: 40px 0 20px 0;
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 700;
-  font-size: 28px;
-  line-height: 1.2;
+  font-size: 24px;
   text-align: center;
   text-transform: uppercase;
   color: #fef9df;
@@ -36,13 +35,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 0 0 320px;
-  width: 320px;
+  flex: 0 0 300px;
+  width: 300px;
   margin: 0;
   padding: 0;
   border: none;
   background: transparent;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
 .mobile-safes-list__art {
@@ -51,7 +52,7 @@
   background-color: transparent;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 370px auto;
+  background-size: 350px auto;
   pointer-events: none;
 }
 
@@ -71,28 +72,40 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 8px;
   width: 100%;
-  max-width: 360px;
-  margin: 8px 0 12px;
+  /* max-width: 343px; */
   padding: 0 16px;
+  margin: 20px 0 20px;
   box-sizing: border-box;
 }
 
 .mobile-safes-list__nav-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex: 0 0 auto;
-  width: 44px;
-  height: 44px;
+  box-sizing: border-box;
+  width: 37px;
+  height: 37px;
   margin: 0;
   padding: 0;
   border: none;
   border-radius: 6px;
-  background: rgba(91, 91, 91, 0.45);
+  background: rgba(91, 91, 91, 0.4);
   color: #ffffff;
   font-size: 28px;
   line-height: 1;
   cursor: pointer;
+}
+
+.mobile-safes-list__nav-arrow[aria-label="Previous safe"] {
+  padding-right: 2px;
+}
+
+.mobile-safes-list__nav-arrow[aria-label="Next safe"] {
+  padding-left: 2px;
 }
 
 .mobile-safes-list__nav-arrow--hidden {
@@ -101,20 +114,30 @@
 }
 
 .mobile-safes-list__nav-toggle {
-  flex: 1 1 auto;
-  height: 44px;
+  flex: 1 1 1;
+  height: 37px;
   margin: 0;
-  padding: 0 12px;
+  padding: 12px;
   border: none;
   border-radius: 6px;
-  background: rgba(91, 91, 91, 0.45);
+  background: rgba(91, 91, 91, 0.4);
   color: #ffffff;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 12px;
-  letter-spacing: 0.01px;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+@media (max-width: 360px) {
+  .mobile-safes-list__slide {
+    flex: 0 0 290px;
+    width: 290px;
+  }
+
+  .mobile-safes-list__art {
+    background-size: 340px auto;
+  }
 }
 
 @media (max-width: 353px) {

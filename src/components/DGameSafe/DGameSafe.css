@@ -92,9 +92,9 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 37px; /* 30 for mobile */
+  width: 27px; /* 30 for mobile */
   height: 37px; /* 30 for mobile */
-  margin: -13px 0 0 -20px;
+  margin: -13px 0 0 -12px;
   transform: translateY(calc(var(--game-safe-radius) * -1))
     rotate(var(--game-safe-cursor-rotate));
   user-select: none;

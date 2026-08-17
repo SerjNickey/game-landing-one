@@ -22,17 +22,16 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 12px 0 8px;
   box-sizing: border-box;
+  margin-bottom: 20px;
 }
 
 .mobile-safe-clicked__title {
-  margin: 8px 0 4px;
-  font-family: "Montserrat", sans-serif;
+  margin: 40px 0 20px 0;
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 700;
-  font-size: 28px;
-  line-height: 1.2;
+  font-size: 24px;
   text-align: center;
   text-transform: uppercase;
   color: #fef9df;
@@ -52,11 +51,10 @@
 }
 
 .mobile-safe-clicked__nav-toggle {
-  width: 100%;
-  max-width: 280px;
-  height: 44px;
-  margin: 8px 0 12px;
-  padding: 0 12px;
+  width: auto;
+  height: 37px;
+  margin-top: 30px;
+  padding: 12px;
   border: none;
   border-radius: 6px;
   background: rgba(91, 91, 91, 0.45);

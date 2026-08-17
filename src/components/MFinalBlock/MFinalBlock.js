@@ -23,14 +23,6 @@ export const MFinalBlock = () => {
   const claim = document.createElement("div");
   claim.className = "m-final-block__claim";
 
-  const lead = document.createElement("p");
-  lead.className = "m-final-block__lead";
-  lead.textContent = "Claim your prize!";
-
-  const won = document.createElement("p");
-  won.className = "m-final-block__won";
-  won.innerHTML = "You won <b>100% up to $250</b>";
-
   const actions = document.createElement("div");
   actions.className = "m-final-block__actions";
 
@@ -89,7 +81,7 @@ export const MFinalBlock = () => {
   });
 
   actions.append(claimBtn, refreshBtn);
-  claim.append(lead, won, actions);
+  claim.append(actions);
 
   const divider = document.createElement("div");
   divider.className = "m-final-block__divider";

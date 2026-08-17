@@ -3,15 +3,15 @@ import "./MInfoBlock.css";
 
 const HOW_IT_WORKS_STEPS = [
   {
-    n: "1",
+    icon: "one",
     text: "<b>Press & Hold:</b> Press and hold the handle in the center. The dial will start spinning.",
   },
   {
-    n: "2",
+    icon: "two",
     text: "<b>Watch the zone:</b> A highlighted <b>Hot Zone</b> will appear at a random spot on the scale.",
   },
   {
-    n: "3",
+    icon: "three",
     text: "<b>Time it right:</b> Release your finger exactly when the pointer hits the zone!",
   },
 ];
@@ -34,8 +34,8 @@ function renderHowDoesItWorks() {
     item.className = "m-info-block__step";
 
     const index = document.createElement("div");
-    index.className = "m-info-block__step-index";
-    index.textContent = step.n;
+    index.className = `m-info-block__step-index m-info-block__step-index--${step.icon}`;
+    index.setAttribute("aria-hidden", "true");
 
     const text = document.createElement("div");
     text.className = "m-info-block__step-text";

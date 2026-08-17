@@ -1,5 +1,4 @@
 .m-game-safe-opened__container {
-  border: 1px solid red;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -60,5 +59,34 @@
 @media (max-width: 360px) {
   .m-game-safe-opened__container {
     height: 360px;
+  }
+
+  .m-game-safe-opened__container--common {
+    background-position: left -70px center;
+    background-size: auto 480px;
+  }
+  .m-game-safe-opened__container--common::after {
+    background-position: 102px 130px;
+    background-size: auto 100px;
+  }
+
+  .m-game-safe-opened__container--rare {
+    background-position: left -55px bottom -50px;
+    background-size: auto 465px;
+  }
+
+  .m-game-safe-opened__container--rare::after {
+    background-position: 90px 130px;
+    background-size: auto 110px;
+  }
+
+  .m-game-safe-opened__container--epic {
+    background-position: left -55px bottom -50px;
+    background-size: auto 465px;
+  }
+
+  .m-game-safe-opened__container--epic::after {
+    background-position: 90px 130px;
+    background-size: auto 110px;
   }
 }
