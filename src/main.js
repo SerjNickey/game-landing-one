@@ -1,6 +1,8 @@
 import App from "./App.js";
 import { Starfield } from "./components/Starfield/Starfield.js";
+import { mountLoader, hideLoader } from "./components/Loader/Loader.js";
 import { MOBILE_MEDIA_QUERY } from "./styles/viewport.js";
+import { preloadLandingImages } from "./hooks/preloadImages.js";
 import "./style.css";
 import { setRender, resetHooks } from "./hooks/useState.js";
 import { store } from "./store/index.js";
@@ -44,8 +46,10 @@ if (!hot?.data?.isSubscribed) {
   }
 }
 
+mountLoader();
 logStoreState();
 render();
+preloadLandingImages().finally(hideLoader);
 
 if (hot) {
   hot.accept("./App.js", () => {
