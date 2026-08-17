@@ -1,0 +1,125 @@
+.mobile-safes-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.mobile-safes-list__title {
+  margin: 8px 0 4px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fef9df;
+}
+
+.mobile-safes-list__slider {
+  width: 100%;
+  overflow: hidden;
+  padding: 4px 0 8px;
+}
+
+.mobile-safes-list__track {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 16px;
+  width: max-content;
+  will-change: transform;
+}
+
+.mobile-safes-list__slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 320px;
+  width: 320px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.mobile-safes-list__art {
+  width: 100%;
+  aspect-ratio: 343 / 360;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 370px auto;
+  pointer-events: none;
+}
+
+.mobile-safes-list__art--common {
+  background-image: url("/images/SafesList/common_95PER.webp");
+}
+
+.mobile-safes-list__art--rare {
+  background-image: url("/images/SafesList/rare_95PER.webp");
+}
+
+.mobile-safes-list__art--epic {
+  background-image: url("/images/SafesList/epic_95PER.webp");
+}
+
+.mobile-safes-list__nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 360px;
+  margin: 8px 0 12px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.mobile-safes-list__nav-arrow {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: rgba(91, 91, 91, 0.45);
+  color: #ffffff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.mobile-safes-list__nav-arrow--hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.mobile-safes-list__nav-toggle {
+  flex: 1 1 auto;
+  height: 44px;
+  margin: 0;
+  padding: 0 12px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(91, 91, 91, 0.45);
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.01px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+@media (max-width: 353px) {
+  .mobile-safes-list__slide {
+    flex-basis: 200px;
+    width: 200px;
+  }
+}

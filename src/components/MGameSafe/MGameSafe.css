@@ -1,0 +1,126 @@
+.m-game-safe__container {
+  border: 1px solid red;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 375px;
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: transparent;
+  background-size: auto 460px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.m-game-safe__container--common {
+  background-image: url("/images/GameSafe/common_closed_95PER.webp");
+}
+
+.m-game-safe__container--rare {
+  background-image: url("/images/GameSafe/rare_closed_95PER.webp");
+}
+
+.m-game-safe__container--epic {
+  background-image: url("/images/GameSafe/epic_closed_95PER.webp");
+}
+
+.m-game-safe__flash {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  background-color: transparent;
+  opacity: 1;
+  transition: opacity 0.45s ease-out;
+}
+
+.m-game-safe__flash--fade {
+  opacity: 0;
+}
+
+.m-game-safe__ring {
+  border: 1px solid green;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 194px;
+  height: 194px;
+  background: url("/images/GameSafe/middle_95PER.webp") center / contain
+    no-repeat;
+}
+
+.m-game-safe__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.m-game-safe__track {
+  stroke: transparent;
+}
+
+.m-game-safe__progress--red {
+  stroke: rgba(215, 0, 34, 0.39);
+}
+
+.m-game-safe__progress--green {
+  stroke: rgba(48, 164, 91, 0.66);
+}
+
+.m-game-safe__cursor-orbit {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.m-game-safe__cursor {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  margin: -10px 0 0 -16px;
+  transform: translateY(calc(var(--game-safe-radius) * -1))
+    rotate(var(--game-safe-cursor-rotate));
+  user-select: none;
+  pointer-events: none;
+}
+
+.m-game-safe__btn {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  width: 90px;
+  height: 90px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 117%;
+  text-transform: uppercase;
+  white-space: pre-line;
+  cursor: pointer;
+  user-select: none;
+  touch-action: none;
+}
+
+.m-game-safe__btn--idle {
+  color: #ffffff;
+}
+
+.m-game-safe__btn--holding {
+  color: rgba(255, 255, 255, 0.25);
+}
