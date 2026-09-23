@@ -15,42 +15,56 @@
   /* filter: brightness(1.4); */
 }
 
-.game-safe-opened__container::after {
-  content: "";
+.game-safe-opened__prize {
   position: absolute;
-  inset: 0;
+  top: 100px;
+  left: var(--opened-prize-left);
   z-index: 2;
+  width: 200px;
+  height: 200px;
+  padding: 6px;
+  overflow: hidden;
+  box-sizing: border-box;
   pointer-events: none;
-  background-image: var(--opened-prize-image);
-  background-repeat: no-repeat;
+}
+
+.game-safe-opened__prize[data-prize="free-spins"] strong {
+  font-size: 35cqw;
+}
+
+.game-safe-opened__prize[data-prize="free-spins"] span {
+  font-size: 13cqw;
+}
+
+.game-safe-opened__prize[data-prize="bundle"] strong {
+  font-size: 30cqw;
+}
+
+.game-safe-opened__prize[data-prize="bundle"] span {
+  font-size: 10cqw;
+  line-height: 1.02;
+}
+
+html[lang="ru"] .game-safe-opened__prize[data-prize="bundle"] span {
+  font-size: 8.5cqw;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
 }
 
 .game-safe-opened__container--common {
+  --opened-prize-left: 105px;
   background-position: left -70px center;
   background-size: auto 540px;
 }
 
-.game-safe-opened__container--common::after {
-  background-position: 108px 140px;
-  background-size: auto 130px;
-}
-
 .game-safe-opened__container--rare {
+  --opened-prize-left: 105px;
   background-position: left -45px bottom -50px;
   background-size: auto 515px;
-}
-
-.game-safe-opened__container--rare::after {
-  background-position: 110px 140px;
-  background-size: auto 130px;
 }
 
 .game-safe-opened__container--epic {
+  --opened-prize-left: 105px;
   background-position: left -45px bottom -50px;
   background-size: auto 515px;
-}
-
-.game-safe-opened__container--epic::after {
-  background-position: 110px 140px;
-  background-size: auto 130px;
 }

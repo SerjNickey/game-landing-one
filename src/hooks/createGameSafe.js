@@ -32,6 +32,8 @@ const FLASH_FADE_MS = 450;
  *   stroke: number,
  *   cursorRadiusOffset: number,
  *   cursorSize: number,
+ *   holdLabel: string,
+ *   stopLabel: string,
  *   createOpened: (opts: { safeId: string }) => HTMLElement,
  * }} options
  */
@@ -42,6 +44,8 @@ export function createGameSafe({
   stroke,
   cursorRadiusOffset,
   cursorSize,
+  holdLabel,
+  stopLabel,
   createOpened,
 }) {
   const radius = (MIDDLE_TICK_RADIUS * size) / MIDDLE_SIZE;
@@ -134,7 +138,7 @@ export function createGameSafe({
   const button = document.createElement("button");
   button.type = "button";
   button.className = `${p}__btn ${p}__btn--idle`;
-  button.textContent = "HOLD\nTO OPEN";
+  button.textContent = holdLabel;
 
   let rafId = 0;
   let vibeId = 0;
@@ -287,7 +291,7 @@ export function createGameSafe({
   button.addEventListener("pointerdown", (event) => {
     event.preventDefault();
     button.setPointerCapture(event.pointerId);
-    button.textContent = "STOP";
+    button.textContent = stopLabel;
     button.classList.remove(`${p}__btn--idle`);
     button.classList.add(`${p}__btn--holding`);
     if (!won && !animating && filled < 1) {
@@ -297,7 +301,7 @@ export function createGameSafe({
   });
 
   const freeze = () => {
-    button.textContent = "HOLD\nTO OPEN";
+    button.textContent = holdLabel;
     button.classList.remove(`${p}__btn--holding`);
     button.classList.add(`${p}__btn--idle`);
     if (!animating) return;

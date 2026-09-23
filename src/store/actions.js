@@ -2,6 +2,7 @@ export const ActionTypes = {
   SET_LANGUAGE: "SET_LANGUAGE",
   SET_CURRENT_STEP: "SET_CURRENT_STEP",
   SET_SELECTED_SAFE: "SET_SELECTED_SAFE",
+  SET_SELECTED_PRIZE: "SET_SELECTED_PRIZE",
   SET_INFO_BLOCK_VIEW: "SET_INFO_BLOCK_VIEW",
   RESET_APP_FLOW: "RESET_APP_FLOW",
 };
@@ -16,6 +17,10 @@ export function setCurrentStep(step) {
 
 export function setSelectedSafe(safeId) {
   return { type: ActionTypes.SET_SELECTED_SAFE, payload: safeId };
+}
+
+export function setSelectedPrize(prizeId) {
+  return { type: ActionTypes.SET_SELECTED_PRIZE, payload: prizeId };
 }
 
 /** @param {"howDoesItWorks" | "prizes"} view */

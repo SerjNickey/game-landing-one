@@ -1,8 +1,9 @@
-import { useDispatch } from "../../hooks/useSelector.js";
+import { useDispatch, useSelector } from "../../hooks/useSelector.js";
 import { resetAppFlow } from "../../store/actions.js";
+import { getPrize, localizePrize, PRIZES } from "../../constants/prizes.js";
+import { getSafeCopy } from "../../i18n/safes.js";
+import { PrizeText } from "../PrizeText/PrizeText.js";
 import "./DFinalBlock.css";
-
-const OTHER_PRIZES = [{ icon: "one" }, { icon: "two" }];
 
 const CLAIM_SECONDS = 29 * 60 + 59;
 
@@ -18,6 +19,11 @@ function formatTimer(totalSeconds) {
  */
 export const DFinalBlock = () => {
   const dispatch = useDispatch();
+  const lang = useSelector((state) => state.lang);
+  const prizeId = useSelector((state) => state.selectedPrizeId);
+  const copy = getSafeCopy(lang);
+  const prize = localizePrize(getPrize(prizeId), lang);
+  const otherPrizes = PRIZES.filter((item) => item.id !== prize.id);
   const el = document.createElement("div");
   el.className = "d-final-block";
 
@@ -26,11 +32,14 @@ export const DFinalBlock = () => {
 
   const lead = document.createElement("p");
   lead.className = "d-final-block__lead";
-  lead.textContent = "Claim your prize!";
+  lead.textContent = copy.claimLead;
 
   const won = document.createElement("p");
   won.className = "d-final-block__won";
-  won.innerHTML = "You won <b>100% up to $250</b>";
+  won.append(`${copy.youWon} `);
+  const wonPrize = document.createElement("b");
+  wonPrize.textContent = prize.label;
+  won.append(wonPrize);
 
   const actions = document.createElement("div");
   actions.className = "d-final-block__actions";
@@ -41,7 +50,7 @@ export const DFinalBlock = () => {
 
   const claimLabel = document.createElement("span");
   claimLabel.className = "d-final-block__claim-label";
-  claimLabel.textContent = "CLAIM NOW";
+  claimLabel.textContent = copy.claimNow;
 
   const claimTimer = document.createElement("span");
   claimTimer.className = "d-final-block__claim-timer";
@@ -74,7 +83,7 @@ export const DFinalBlock = () => {
   const refreshBtn = document.createElement("button");
   refreshBtn.type = "button";
   refreshBtn.className = "d-final-block__refresh-btn";
-  refreshBtn.setAttribute("aria-label", "Refresh");
+  refreshBtn.setAttribute("aria-label", copy.refresh);
 
   const refreshIcon = document.createElement("img");
   refreshIcon.className = "d-final-block__refresh-icon";
@@ -102,16 +111,22 @@ export const DFinalBlock = () => {
 
   const heading = document.createElement("h2");
   heading.className = "d-final-block__heading";
-  heading.textContent = "Other possible prizes";
+  heading.textContent = copy.otherPrizes;
 
   const cards = document.createElement("div");
   cards.className = "d-final-block__prizes";
 
-  for (const card of OTHER_PRIZES) {
-    const prize = document.createElement("div");
-    prize.className = `d-final-block__prize-card d-final-block__prize-card--${card.icon}`;
-    prize.setAttribute("aria-hidden", "true");
-    cards.append(prize);
+  for (const otherPrize of otherPrizes) {
+    const card = document.createElement("div");
+    card.className = "d-final-block__prize-card";
+    card.append(
+      PrizeText({
+        prizeId: otherPrize.id,
+        lang,
+        className: "d-final-block__prize-text",
+      }),
+    );
+    cards.append(card);
   }
 
   other.append(heading, cards);

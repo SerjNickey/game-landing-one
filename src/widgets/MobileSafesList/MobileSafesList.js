@@ -3,6 +3,7 @@ import { setInfoBlockView, setSelectedSafe } from "../../store/actions.js";
 import { DESKTOP_SAFES } from "../../constants/desktopSafes.js";
 import { MInfoBlock } from "../../components/MInfoBlock/MInfoBlock.js";
 import { goToSelectedSafe } from "../../hooks/goToSelectedSafe.js";
+import { getSafeCopy, getSafeTitle } from "../../i18n/safes.js";
 import "./MobileSafesList.css";
 
 /** Persist index across remounts so translateX can animate. */
@@ -29,6 +30,8 @@ export const MobileSafesList = () => {
   const dispatch = useDispatch();
   const selectedSafeId =
     useSelector((state) => state.selectedSafeId) ?? "rare";
+  const lang = useSelector((state) => state.lang);
+  const copy = getSafeCopy(lang);
   const infoView =
     useSelector((state) => state.infoBlockView) ?? "howDoesItWorks";
   const isPrizes = infoView === "prizes";
@@ -40,7 +43,7 @@ export const MobileSafesList = () => {
 
   const title = document.createElement("div");
   title.className = "mobile-safes-list__title";
-  title.textContent = activeSafe.title;
+  title.textContent = getSafeTitle(activeSafe.id, lang);
 
   const slider = document.createElement("div");
   slider.className = "mobile-safes-list__slider";
@@ -49,6 +52,7 @@ export const MobileSafesList = () => {
   track.className = "mobile-safes-list__track";
 
   for (const safe of DESKTOP_SAFES) {
+    const titleText = getSafeTitle(safe.id, lang);
     const item = document.createElement("button");
     item.type = "button";
     item.className = [
@@ -58,7 +62,7 @@ export const MobileSafesList = () => {
     ]
       .filter(Boolean)
       .join(" ");
-    item.setAttribute("aria-label", safe.title);
+    item.setAttribute("aria-label", titleText);
     if (safe.id === selectedSafeId) item.setAttribute("aria-current", "true");
 
     const art = document.createElement("div");
@@ -108,7 +112,7 @@ export const MobileSafesList = () => {
   const prevBtn = document.createElement("button");
   prevBtn.type = "button";
   prevBtn.className = "mobile-safes-list__nav-arrow";
-  prevBtn.setAttribute("aria-label", "Previous safe");
+  prevBtn.setAttribute("aria-label", copy.previousSafe);
   prevBtn.textContent = "‹";
   if (index <= 0) {
     prevBtn.classList.add("mobile-safes-list__nav-arrow--hidden");
@@ -123,7 +127,7 @@ export const MobileSafesList = () => {
   const toggleBtn = document.createElement("button");
   toggleBtn.type = "button";
   toggleBtn.className = "mobile-safes-list__nav-toggle";
-  toggleBtn.textContent = isPrizes ? "BACK TO RULES" : "WHAT'S INSIDE?";
+  toggleBtn.textContent = isPrizes ? copy.showRules : copy.showPrizes;
   toggleBtn.addEventListener("click", () => {
     dispatch(setInfoBlockView(isPrizes ? "howDoesItWorks" : "prizes"));
   });
@@ -131,7 +135,7 @@ export const MobileSafesList = () => {
   const nextBtn = document.createElement("button");
   nextBtn.type = "button";
   nextBtn.className = "mobile-safes-list__nav-arrow";
-  nextBtn.setAttribute("aria-label", "Next safe");
+  nextBtn.setAttribute("aria-label", copy.nextSafe);
   nextBtn.textContent = "›";
   if (index >= DESKTOP_SAFES.length - 1) {
     nextBtn.classList.add("mobile-safes-list__nav-arrow--hidden");

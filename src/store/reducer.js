@@ -4,6 +4,7 @@ export const initialState = {
   lang: "en",
   currentStep: "landing",
   selectedSafeId: null,
+  selectedPrizeId: null,
   infoBlockView: "howDoesItWorks",
 };
 
@@ -17,6 +18,9 @@ export function appReducer(state = initialState, action) {
     case ActionTypes.SET_SELECTED_SAFE:
       if (state.selectedSafeId === action.payload) return state;
       return { ...state, selectedSafeId: action.payload };
+    case ActionTypes.SET_SELECTED_PRIZE:
+      if (state.selectedPrizeId === action.payload) return state;
+      return { ...state, selectedPrizeId: action.payload };
     case ActionTypes.SET_INFO_BLOCK_VIEW:
       if (state.infoBlockView === action.payload) return state;
       return { ...state, infoBlockView: action.payload };
@@ -25,6 +29,7 @@ export function appReducer(state = initialState, action) {
         ...state,
         currentStep: initialState.currentStep,
         selectedSafeId: initialState.selectedSafeId,
+        selectedPrizeId: initialState.selectedPrizeId,
         infoBlockView: initialState.infoBlockView,
       };
     default:

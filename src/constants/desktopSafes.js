@@ -1,7 +1,7 @@
 export const DESKTOP_SAFES = [
-  { id: "common", title: "COMMON" },
-  { id: "rare", title: "RARE" },
-  { id: "epic", title: "EPIC" },
+  { id: "common" },
+  { id: "rare" },
+  { id: "epic" },
 ];
 
 /** Rotate queue so `selectedId` sits in the center slot. */
