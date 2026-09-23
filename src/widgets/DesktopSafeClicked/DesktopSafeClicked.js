@@ -4,10 +4,12 @@ import { DInfoBlock } from "../../components/DInfoBlock/DInfoBlock.js";
 import { DFinalBlock } from "../../components/DFinalBlock/DFinalBlock.js";
 import { useSelector } from "../../hooks/useSelector.js";
 import { arrangeSafesWithCenter } from "../../constants/desktopSafes.js";
+import { getSafeTitle } from "../../i18n/safes.js";
 import "./DesktopSafeClicked.css";
 
 export const DesktopSafeClicked = () => {
   const selectedSafeId = useSelector((state) => state.selectedSafeId);
+  const lang = useSelector((state) => state.lang);
   const safes = arrangeSafesWithCenter(selectedSafeId);
 
   const el = document.createElement("div");
@@ -18,6 +20,7 @@ export const DesktopSafeClicked = () => {
   row.className = "desktop-safe-clicked__container";
 
   for (const safe of safes) {
+    const titleText = getSafeTitle(safe.id, lang);
     const isCenter = safe.id === selectedSafeId;
     const item = document.createElement("div");
     item.className = [
@@ -30,20 +33,20 @@ export const DesktopSafeClicked = () => {
 
     const title = document.createElement("div");
     title.className = "desktop-safe-clicked__title";
-    title.textContent = safe.title;
+    title.textContent = titleText;
 
     if (isCenter) {
       // Keep the middle slot size, but render DGameSafe instead of safe art.
       const slot = document.createElement("div");
       slot.className = "desktop-safe-clicked__slot";
       slot.setAttribute("aria-current", "true");
-      slot.setAttribute("aria-label", safe.title);
+      slot.setAttribute("aria-label", titleText);
       slot.append(DGameSafe());
       item.append(title, slot);
     } else {
       const block = document.createElement("div");
       block.className = `desktop-safe-clicked__safe desktop-safe-clicked__safe--${safe.id}`;
-      block.setAttribute("aria-label", safe.title);
+      block.setAttribute("aria-label", titleText);
       item.append(title, block);
     }
 

@@ -1,4 +1,5 @@
 import logoWebp from "../../../public/images/Header/logo_100PER.webp";
+import { LangSwitcher } from "../LangSwitcher/LangSwitcher.js";
 import "./Header.css";
 
 export const Header = () => {
@@ -13,5 +14,6 @@ export const Header = () => {
       height="24"
     />
   `;
+  el.append(LangSwitcher());
   return el;
 };

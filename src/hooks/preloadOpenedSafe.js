@@ -11,5 +11,4 @@ function preload(url) {
 export function preloadOpenedSafeImages(safeId) {
   const id = safeId ?? "common";
   preload(`/images/GameSafe/${id}_opened_95PER.webp`);
-  preload("/images/GameSafe/first_prize_95PER.webp");
 }

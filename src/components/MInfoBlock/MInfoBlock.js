@@ -1,61 +1,55 @@
 import { useSelector } from "../../hooks/useSelector.js";
+import { getSafeCopy } from "../../i18n/safes.js";
 import "./MInfoBlock.css";
 
-const HOW_IT_WORKS_STEPS = [
-  {
-    icon: "one",
-    text: "<b>Press & Hold:</b> Press and hold the handle in the center. The dial will start spinning.",
-  },
-  {
-    icon: "two",
-    text: "<b>Watch the zone:</b> A highlighted <b>Hot Zone</b> will appear at a random spot on the scale.",
-  },
-  {
-    icon: "three",
-    text: "<b>Time it right:</b> Release your finger exactly when the pointer hits the zone!",
-  },
-];
+const STEP_ICONS = ["one", "two", "three"];
 
 const PRIZE_CARDS = [{ icon: "one" }, { icon: "two" }, { icon: "three" }];
 
-function renderHowDoesItWorks() {
+function appendStepCopy(target, step) {
+  const title = document.createElement("b");
+  title.textContent = `${step.title}:`;
+  target.append(title, ` ${step.text}`);
+}
+
+function renderHowDoesItWorks(copy) {
   const section = document.createElement("div");
   section.className = "m-info-block__section";
 
   const heading = document.createElement("h2");
   heading.className = "m-info-block__heading";
-  heading.textContent = "How does it work?";
+  heading.textContent = copy.howTitle;
 
   const steps = document.createElement("div");
   steps.className = "m-info-block__steps";
 
-  for (const step of HOW_IT_WORKS_STEPS) {
+  copy.steps.forEach((step, indexValue) => {
     const item = document.createElement("div");
     item.className = "m-info-block__step";
 
     const index = document.createElement("div");
-    index.className = `m-info-block__step-index m-info-block__step-index--${step.icon}`;
+    index.className = `m-info-block__step-index m-info-block__step-index--${STEP_ICONS[indexValue]}`;
     index.setAttribute("aria-hidden", "true");
 
     const text = document.createElement("div");
     text.className = "m-info-block__step-text";
-    text.innerHTML = step.text;
+    appendStepCopy(text, step);
 
     item.append(index, text);
     steps.append(item);
-  }
+  });
 
   section.append(heading, steps);
   return section;
 }
 
-function renderPrizes() {
+function renderPrizes(copy) {
   const section = document.createElement("div");
   section.className = "m-info-block__section";
 
   const heading = document.createElement("h2");
   heading.className = "m-info-block__heading";
-  heading.textContent = "Prizes";
+  heading.textContent = copy.prizesTitle;
 
   const cards = document.createElement("div");
   cards.className = "m-info-block__prizes";
@@ -77,8 +71,12 @@ function renderPrizes() {
  */
 export const MInfoBlock = () => {
   const view = useSelector((state) => state.infoBlockView) ?? "howDoesItWorks";
+  const lang = useSelector((state) => state.lang);
+  const copy = getSafeCopy(lang);
   const el = document.createElement("div");
   el.className = `m-info-block m-info-block--${view}`;
-  el.append(view === "prizes" ? renderPrizes() : renderHowDoesItWorks());
+  el.append(
+    view === "prizes" ? renderPrizes(copy) : renderHowDoesItWorks(copy),
+  );
   return el;
 };

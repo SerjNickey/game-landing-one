@@ -14,6 +14,7 @@ function rootReducer(state, action) {
           lang: state.lang,
           currentStep: state.currentStep,
           selectedSafeId: state.selectedSafeId,
+          selectedPrizeId: state.selectedPrizeId,
           infoBlockView: state.infoBlockView,
         };
 

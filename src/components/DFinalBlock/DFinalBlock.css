@@ -138,16 +138,19 @@
 .d-final-block__prize-card {
   width: 100px;
   height: 100px;
-  background-color: transparent;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  overflow: hidden;
+  border: 1px solid #464646;
+  border-radius: 6px;
+  background: #202020;
+  box-sizing: border-box;
 }
 
-.d-final-block__prize-card--one {
-  background-image: url("/images/infoBlock/prize_one_95PER.webp");
-}
-
-.d-final-block__prize-card--two {
-  background-image: url("/images/infoBlock/prize_two_95PER.webp");
+.d-final-block__prize-text {
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  margin: 6px;
+  color: #ffffff;
+  background: none;
+  -webkit-text-fill-color: #ffffff;
+  filter: drop-shadow(0 2px 5px #000000);
 }

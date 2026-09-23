@@ -5,6 +5,7 @@ import { MFinalBlock } from "../../components/MFinalBlock/MFinalBlock.js";
 import { useDispatch, useSelector } from "../../hooks/useSelector.js";
 import { setInfoBlockView } from "../../store/actions.js";
 import { DESKTOP_SAFES } from "../../constants/desktopSafes.js";
+import { getSafeCopy, getSafeTitle } from "../../i18n/safes.js";
 import "./MobileSafeClicked.css";
 
 /**
@@ -14,6 +15,8 @@ export const MobileSafeClicked = () => {
   const dispatch = useDispatch();
   const selectedSafeId =
     useSelector((state) => state.selectedSafeId) ?? "common";
+  const lang = useSelector((state) => state.lang);
+  const copy = getSafeCopy(lang);
   const infoView =
     useSelector((state) => state.infoBlockView) ?? "howDoesItWorks";
   const isPrizes = infoView === "prizes";
@@ -30,7 +33,7 @@ export const MobileSafeClicked = () => {
 
   const title = document.createElement("div");
   title.className = "mobile-safe-clicked__title";
-  title.textContent = safe.title;
+  title.textContent = getSafeTitle(safe.id, lang);
 
   const slot = document.createElement("div");
   slot.className = "mobile-safe-clicked__slot";
@@ -39,7 +42,7 @@ export const MobileSafeClicked = () => {
   const toggleBtn = document.createElement("button");
   toggleBtn.type = "button";
   toggleBtn.className = "mobile-safe-clicked__nav-toggle";
-  toggleBtn.textContent = isPrizes ? "BACK TO RULES" : "WHAT'S INSIDE?";
+  toggleBtn.textContent = isPrizes ? copy.showRules : copy.showPrizes;
   toggleBtn.addEventListener("click", () => {
     dispatch(setInfoBlockView(isPrizes ? "howDoesItWorks" : "prizes"));
   });

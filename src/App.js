@@ -11,7 +11,10 @@ export { MOBILE_MEDIA_QUERY, isMobileViewport };
 
 const App = () => {
   const currentStep = useSelector((state) => state.currentStep);
+  const lang = useSelector((state) => state.lang);
   const mobile = isMobileViewport();
+
+  document.documentElement.lang = lang;
 
   const widgets = {
     landing: LandingPage,

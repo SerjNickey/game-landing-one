@@ -13,44 +13,58 @@
   background-repeat: no-repeat;
 }
 
-.m-game-safe-opened__container::after {
-  content: "";
+.m-game-safe-opened__prize {
   position: absolute;
-  inset: 0;
+  top: 80px;
+  left: var(--opened-prize-left);
   z-index: 2;
+  width: 200px;
+  height: 200px;
+  padding: 6px;
+  overflow: hidden;
+  box-sizing: border-box;
   pointer-events: none;
-  background-image: var(--opened-prize-image);
-  background-repeat: no-repeat;
+}
+
+.m-game-safe-opened__prize[data-prize="free-spins"] strong {
+  font-size: 35cqw;
+}
+
+.m-game-safe-opened__prize[data-prize="free-spins"] span {
+  font-size: 13cqw;
+}
+
+.m-game-safe-opened__prize[data-prize="bundle"] strong {
+  font-size: 30cqw;
+}
+
+.m-game-safe-opened__prize[data-prize="bundle"] span {
+  font-size: 10cqw;
+  line-height: 1.02;
+}
+
+html[lang="ru"] .m-game-safe-opened__prize[data-prize="bundle"] span {
+  font-size: 8.5cqw;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
 }
 
 .m-game-safe-opened__container--common {
+  --opened-prize-left: 66px;
   background-position: left -70px center;
   background-size: auto 500px;
 }
 
-.m-game-safe-opened__container--common::after {
-  background-position: 102px 130px;
-  background-size: auto 110px;
-}
-
 .m-game-safe-opened__container--rare {
+  --opened-prize-left: 66px;
   background-position: left -55px bottom -50px;
   background-size: auto 490px;
-}
-
-.m-game-safe-opened__container--rare::after {
-  background-position: 102px 130px;
-  background-size: auto 110px;
 }
 
 .m-game-safe-opened__container--epic {
+  --opened-prize-left: 66px;
   background-position: left -55px bottom -50px;
   background-size: auto 490px;
-}
-
-.m-game-safe-opened__container--epic::after {
-  background-position: 102px 130px;
-  background-size: auto 110px;
 }
 
 @media (max-width: 360px) {
@@ -62,9 +76,14 @@
     background-position: left -70px center;
     background-size: auto 480px;
   }
-  .m-game-safe-opened__container--common::after {
-    background-position: 102px 130px;
-    background-size: auto 100px;
+  .m-game-safe-opened__prize {
+    top: 82px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .m-game-safe-opened__container--common {
+    --opened-prize-left: 62px;
   }
 
   .m-game-safe-opened__container--rare {
@@ -72,9 +91,8 @@
     background-size: auto 465px;
   }
 
-  .m-game-safe-opened__container--rare::after {
-    background-position: 90px 130px;
-    background-size: auto 110px;
+  .m-game-safe-opened__container--rare {
+    --opened-prize-left: 52px;
   }
 
   .m-game-safe-opened__container--epic {
@@ -82,8 +100,7 @@
     background-size: auto 465px;
   }
 
-  .m-game-safe-opened__container--epic::after {
-    background-position: 90px 130px;
-    background-size: auto 110px;
+  .m-game-safe-opened__container--epic {
+    --opened-prize-left: 52px;
   }
 }

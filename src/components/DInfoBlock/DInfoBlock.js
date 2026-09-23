@@ -1,41 +1,35 @@
 import { useDispatch, useSelector } from "../../hooks/useSelector.js";
 import { setInfoBlockView } from "../../store/actions.js";
+import { getSafeCopy } from "../../i18n/safes.js";
 import "./DInfoBlock.css";
 
-const HOW_IT_WORKS_STEPS = [
-  {
-    icon: "one",
-    text: "<b>Press & Hold:</b> Press and hold the handle in the center. The dial will start spinning.",
-  },
-  {
-    icon: "two",
-    text: "<b>Watch the zone:</b> A highlighted <b>Hot Zone</b> will appear at a random spot on the scale.",
-  },
-  {
-    icon: "three",
-    text: "<b>Time it right:</b> Release your finger exactly when the pointer hits the zone!",
-  },
-];
+const STEP_ICONS = ["one", "two", "three"];
 
 const PRIZE_CARDS = [{ icon: "one" }, { icon: "two" }, { icon: "three" }];
 
-function renderHowDoesItWorks() {
+function appendStepCopy(target, step) {
+  const title = document.createElement("b");
+  title.textContent = `${step.title}:`;
+  target.append(title, ` ${step.text}`);
+}
+
+function renderHowDoesItWorks(copy) {
   const section = document.createElement("div");
   section.className = "d-info-block__section";
 
   const heading = document.createElement("h2");
   heading.className = "d-info-block__heading";
-  heading.textContent = "How does it work?";
+  heading.textContent = copy.howTitle;
 
   const steps = document.createElement("div");
   steps.className = "d-info-block__steps";
 
-  for (const step of HOW_IT_WORKS_STEPS) {
+  copy.steps.forEach((step, indexValue) => {
     const item = document.createElement("div");
     item.className = "d-info-block__step";
 
     const index = document.createElement("div");
-    index.className = `d-info-block__step-index d-info-block__step-index--${step.icon}`;
+    index.className = `d-info-block__step-index d-info-block__step-index--${STEP_ICONS[indexValue]}`;
     index.setAttribute("aria-hidden", "true");
 
     const body = document.createElement("div");
@@ -43,24 +37,24 @@ function renderHowDoesItWorks() {
 
     const text = document.createElement("div");
     text.className = "d-info-block__step-text";
-    text.innerHTML = step.text;
+    appendStepCopy(text, step);
 
     body.append(text);
     item.append(index, body);
     steps.append(item);
-  }
+  });
 
   section.append(heading, steps);
   return section;
 }
 
-function renderPrizes() {
+function renderPrizes(copy) {
   const section = document.createElement("div");
   section.className = "d-info-block__section";
 
   const heading = document.createElement("h2");
   heading.className = "d-info-block__heading";
-  heading.textContent = "Prizes";
+  heading.textContent = copy.prizesTitle;
 
   const cards = document.createElement("div");
   cards.className = "d-info-block__prizes";
@@ -83,6 +77,8 @@ function renderPrizes() {
 export const DInfoBlock = () => {
   const dispatch = useDispatch();
   const view = useSelector((state) => state.infoBlockView) ?? "howDoesItWorks";
+  const lang = useSelector((state) => state.lang);
+  const copy = getSafeCopy(lang);
   const isPrizes = view === "prizes";
 
   const el = document.createElement("div");
@@ -91,11 +87,14 @@ export const DInfoBlock = () => {
   const toggle = document.createElement("button");
   toggle.type = "button";
   toggle.className = "d-info-block__toggle";
-  toggle.textContent = isPrizes ? "BACK TO RULES" : "WHAT'S INSIDE?";
+  toggle.textContent = isPrizes ? copy.showRules : copy.showPrizes;
   toggle.addEventListener("click", () => {
     dispatch(setInfoBlockView(isPrizes ? "howDoesItWorks" : "prizes"));
   });
 
-  el.append(toggle, isPrizes ? renderPrizes() : renderHowDoesItWorks());
+  el.append(
+    toggle,
+    isPrizes ? renderPrizes(copy) : renderHowDoesItWorks(copy),
+  );
   return el;
 };

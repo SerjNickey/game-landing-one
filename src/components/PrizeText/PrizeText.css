@@ -1,0 +1,57 @@
+.prize-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  background: linear-gradient(
+    105deg,
+    #ff3151 4%,
+    #ff7352 35%,
+    #ffd568 72%,
+    #fff5c9 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  filter: drop-shadow(0 0 15px rgba(255, 52, 34, 0.35));
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  line-height: 0.94;
+  text-align: center;
+  text-transform: uppercase;
+  container-type: inline-size;
+}
+
+.prize-text strong {
+  font-size: 35cqw;
+  letter-spacing: -0.06em;
+}
+
+.prize-text span {
+  display: block;
+  max-width: 100%;
+  font-size: 13.5cqw;
+  letter-spacing: -0.035em;
+  text-align: center;
+}
+
+.prize-text[data-prize="free-spins"] strong {
+  font-size: 23cqw;
+  letter-spacing: -0.02em;
+}
+
+.prize-text[data-prize="free-spins"] span {
+  font-size: 9cqw;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+}
+
+.prize-text[data-prize="bundle"] strong {
+  font-size: 22cqw;
+}
+
+.prize-text[data-prize="bundle"] span {
+  font-size: 8.2cqw;
+}

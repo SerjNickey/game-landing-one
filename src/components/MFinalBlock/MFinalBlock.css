@@ -16,6 +16,24 @@
   width: 100%;
 }
 
+.m-final-block__lead,
+.m-final-block__won {
+  margin: 0 0 6px;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.m-final-block__won {
+  margin-bottom: 10px;
+}
+
+.m-final-block__won b {
+  font-weight: 700;
+}
+
 .m-final-block__actions {
   display: flex;
   flex-direction: row;
@@ -107,15 +125,19 @@
 .m-final-block__prize-card {
   width: 96px;
   height: 96px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  overflow: hidden;
+  border: 1px solid #464646;
+  border-radius: 6px;
+  background: #202020;
+  box-sizing: border-box;
 }
 
-.m-final-block__prize-card--one {
-  background-image: url("/images/infoBlock/prize_one_95PER.webp");
-}
-
-.m-final-block__prize-card--two {
-  background-image: url("/images/infoBlock/prize_two_95PER.webp");
+.m-final-block__prize-text {
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  margin: 6px;
+  color: #ffffff;
+  background: none;
+  -webkit-text-fill-color: #ffffff;
+  filter: drop-shadow(0 2px 5px #000000);
 }
